@@ -1,2 +1,3 @@
-# Today-I-Learn
-가가가나나나다다ㅏㄷ
+# Today-I-Learn 
+<br>
+무엇을 배웠는지 매일 기록
