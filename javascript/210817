@@ -1,0 +1,20 @@
+## html파일에 저장된 js파일을 추가할 때 
+---
+
+ <script>
+      // mpr 편집값 추가
+      s = document.createElement("script");
+      s.type = "text/javascript";
+      s.src = "data/" + rId + "/info/info-mpr.js";
+      // Use any selector
+      $("head").append(s);
+</script>
+    
+    
+## 저장된 js파일의 배열(숫자)에 % 붙여서 불러오기
+  document.getElementById("Sag_Opacity").value = String(info_page_mpr[4]).concat('%');
+
+### 오늘의 해결못한 문제점
+
+백엔드에 변수(배열)잘 저장했고, 프론트에서 잘 불러와지는데,
+불러와진 값으로 nrrd 셋팅이 안된다 .. 내일 고칠 것
