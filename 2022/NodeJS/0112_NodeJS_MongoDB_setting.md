@@ -83,3 +83,39 @@ app.post('/add', function(req,res){
 ```
 
 
+## 서버 데이터 넣어 HTML 만드는 법 (EJS 사용)
+
+### EJS
+
+1. 터미널에서 ejs 설치. `npm install ejs`
+2. server.js에 EJS관련 코드 작성
+```
+app.set('view engine', 'ejs');
+
+```
+
+3. list.html 파일을 list.ejs로 확장자 바꾸기
+
+4. server.js
+>list로 get요청으로 접속하면 db에 저장된 데이터들로 꾸며진 html을 보여주기
+>ejs파일의 위치는 view폴더 내에 넣기
+
+```javascript
+    app.get('/list', function(req,res){
+        res.render('list.ejs');
+    })
+```
+
+### DB데이터 읽기
+
+list.ejs파일에 반복문 적용
+
+```javascript
+ <% for (var i = 0; i < posts.length; i++ ){ %> 
+        <h4>할일 제목 : <%= posts[i].제목 %></h4>
+        <p>할일 마감날짜 : <%= posts[i].날짜 %></p>
+      <% } %>
+```
+
+
+
