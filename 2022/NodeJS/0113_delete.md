@@ -64,3 +64,39 @@ list.ejs
       </script>
 
 ```
+
+list.ejs
+
+
+```js
+
+<script>
+        $('.delete').click(function(e){
+          var postNum = e.target.dataset.id; // e.target은 클릭한 것 
+          var clicked = $(this); //  this는 이벤트가 일어나는 곳 
+          $.ajax({
+          method : 'DELETE',
+          url :'/delete',
+          data: {_id: postNum }
+        }).done(function(result){ //성공 시 
+          console.log('성공')
+          clicked.parent('li').fadeOut();
+          }).fail(function(xhr,textStatus,errorThrown){ // 실패 시 브라우저 콘솔에 에러 원인 출력
+            console.log(xhr,textStatus,errorThrown)
+          })
+        })
+      </script>
+```
+
+server.js
+```js
+app.delete('/delete', function(req,res){
+    console.log(req.body);
+    req.body._id = parseInt(req.body._id);
+    db.collection('post').deleteOne(req.body,function(error,result){
+        console.log('삭제완료');
+        res.status(200).send({message:'성공했습니다'});
+    })
+})
+
+```
