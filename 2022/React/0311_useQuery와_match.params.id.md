@@ -4,7 +4,9 @@
  
 - 기존 api호출하던 방식을 ```useQuery```로 수정 (인자로 match.params.id) 넘기기 
 - 현재까지는 useQuery로 불러온 데이터를 보여줬고, 데이터를 수정 후 post할때는  ```mutate```를 사용할 것이다.
- 
+- 타입스크립트에서 타입 내로잉이라는걸 접해 보았다.
+
+
 ### 1. 논문 수정페이지에서, 저장된 논문 개별로 불러오는 코드를 useQuery로 교체함
 
 #### 커스텀 hooks를 만든다. 
@@ -105,5 +107,9 @@ export default withRouter(HomepagePublicationsUpdate);
 ```
   
   
-  
+- 문제점 : 기존의 input onChange가 안되어서 , 받아온 데이터를 위처럼 그대로 쓰면 input 수정이 안되었다.
+때문에 받아온 데이터를 기존처럼 ```publicView```에 담아 사용 해야 했다. 
+
+- onChange가 되도록 코드를 다시 수정 중 ... 
+
 
